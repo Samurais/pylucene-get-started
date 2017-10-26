@@ -56,11 +56,15 @@ def run(searcher, analyzer):
         print("Searching for:", command)
         query = QueryParser("contents", analyzer).parse(command)
         scoreDocs = searcher.search(query, 50).scoreDocs
+        # scoreDocs = searcher.explain(query, 50).scoreDocs
         print("%s total matching documents." % len(scoreDocs))
+
+        # for o in searcher.explain(query, 50).details:
+        #     print(o)
 
         for scoreDoc in scoreDocs:
             doc = searcher.doc(scoreDoc.doc)
-            print('id:', doc.get("id"), 'post:', doc.get("post"))
+            print('id:', doc.get("id"), 'score:', scoreDoc.score, 'post:', doc.get("post"))
 
 
 if __name__ == '__main__':
