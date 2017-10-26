@@ -20,7 +20,16 @@ make
 make install
 ```
 
+## build index
+```
+text-indexer/scripts/dev.sh
+```
+
 ## sample
 ```
-python 
+python SearchFiles.py
 ```
+
+![](./docs/demo.png)
+
+[Apache Lucene - Query Parser Syntax](./docs/queryparsersyntax.pdf)
